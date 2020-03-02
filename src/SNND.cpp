@@ -1,6 +1,6 @@
-#include "SNNE.h"
+#include "SNND.h"
 
-SNNE::SNNE(int number_of_neurons)
+SNND::SNND(int number_of_neurons)
 {
     // Resize vectors to match sizes
     this->neuron_output.resize(number_of_neurons);
@@ -21,7 +21,7 @@ SNNE::SNNE(int number_of_neurons)
     std::cout << timer.start << std::endl;
 }
 
-SNNE::~SNNE()
+SNND::~SNND()
 {
     for (std::vector<int>::size_type i = 0; i < neurons.size(); i++)
     {
@@ -29,7 +29,7 @@ SNNE::~SNNE()
     }
 }
 
-void SNNE::Start()
+void SNND::Start()
 {
     for (size_t c = 0; c < 1024; c++)
     {
@@ -42,11 +42,11 @@ void SNNE::Start()
     }
 }
 
-void SNNE::Stop()
+void SNND::Stop()
 {
 }
 
-void SNNE::SetMode(int neuron_position, SNNE::Mode mode)
+void SNND::SetMode(int neuron_position, SNND::Mode mode)
 {
     // Check if position exists
     if (neuron_position > this->neurons.size())
@@ -59,15 +59,15 @@ void SNNE::SetMode(int neuron_position, SNNE::Mode mode)
         std::cout << "Setting neuron number " << neuron_position;
         switch (mode)
         {
-        case SNNE::Mode::RateCode:
+        case SNND::Mode::RateCode:
             std::cout << " to rate code mode" << std::endl;
             this->neurons[neuron_position] = new Rate(&(this->neuron_trace[neuron_position]), &(this->neuron_output[neuron_position]));
             break;
-        case SNNE::Mode::PhaseCode:
+        case SNND::Mode::PhaseCode:
             // TODO: Optimize using dynamic allocation of memory
             this->neurons[neuron_position] = new Phase((this->neuron_trace[neuron_position]), (this->neuron_output[neuron_position]));
             break;
-        case SNNE::Mode::PopulationCode:
+        case SNND::Mode::PopulationCode:
             // TODO: Optimize using dynamic allocation of memory
             this->neurons[neuron_position] = new Population((this->neuron_trace[neuron_position]), (this->neuron_output[neuron_position]));
             break;
@@ -79,11 +79,11 @@ void SNNE::SetMode(int neuron_position, SNNE::Mode mode)
     }
 }
 
-void SNNE::SetMode(std::vector<int> neuron_position, SNNE::Mode mode)
+void SNND::SetMode(std::vector<int> neuron_position, SNND::Mode mode)
 {
     for (std::vector<int>::size_type i = 0; i < neuron_position.size(); i++)
     {
-        // Use loop to set all neuron mode trough this->setMode(int, SNNE::Mode)
+        // Use loop to set all neuron mode trough this->setMode(int, SNND::Mode)
         this->SetMode(neuron_position[i], mode);
     }
 }
