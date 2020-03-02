@@ -1,1 +1,1 @@
-# Spiking-Neural-Network-Encoder
+# Spiking-Neural-Network-Decoder
