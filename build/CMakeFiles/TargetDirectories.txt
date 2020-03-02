@@ -1,3 +1,0 @@
-/home/caio/Documentos/Spiking-Neural-Network-Encoder/build/CMakeFiles/rebuild_cache.dir
-/home/caio/Documentos/Spiking-Neural-Network-Encoder/build/CMakeFiles/SNNE.dir
-/home/caio/Documentos/Spiking-Neural-Network-Encoder/build/CMakeFiles/edit_cache.dir
