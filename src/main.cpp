@@ -1,6 +1,6 @@
 #include <QCoreApplication>
 #include <iostream>
-#include "SNNE.h"
+#include "SNND.h"
 
 int main(int argc, char *argv[])
 {
